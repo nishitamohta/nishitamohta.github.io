@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspired: Nishita Mohta</title>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --grey200: #2C2C2A;
+    --grey150: #444441;
+    --grey100: #888780;
+    --purple: #6B63D4;
+    --navy: #1a1a2e;
+    --cream: #F5F2EB;
+    --lilac: #F0ECF9;
+    --white: #ffffff;
+    --radius: 20px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    background: var(--white);
+    color: var(--grey200);
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    border-bottom: 0.5px solid #e8e5de;
+  }
+
+  .header-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 1.25rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .header-name {
+    font-family: 'Antonio', sans-serif; font-weight: 700;
+    font-size: 26px; text-transform: uppercase;
+    color: var(--grey200); letter-spacing: 0.02em; text-decoration: none;
+  }
+
+  .header-right { display: flex; align-items: center; gap: 1.75rem; }
+
+  .header-link {
+    font-size: 15px; font-weight: 400;
+    color: var(--grey200); text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .header-link:hover { opacity: 0.6; }
+
+  .nav-cta {
+    display: inline-block;
+    background: #000000; color: var(--white); border: none;
+    padding: 0.6rem 1.5rem; border-radius: 100px;
+    font-size: 15px; font-weight: 400; cursor: pointer;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #2a2a2a; }
+
+  /* ── SECTION BASE ── */
+  .section {
+    max-width: 1100px; margin: 0 auto; padding: 5rem 3rem;
+  }
+
+  .section-sm { padding: 4rem 3rem; }
+
+  .eyebrow {
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--grey100); margin-bottom: 1rem;
+  }
+
+  /* ── BOOK HERO ── */
+  .book-hero {
+    max-width: 1100px; margin: 0 auto;
+    padding: 5rem 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .book-cover-wrap {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+
+  .book-cover-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .book-label {
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--grey100); margin-bottom: 1rem;
+  }
+
+  .book-title {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: clamp(40px, 4.5vw, 56px);
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1; margin-bottom: 0.75rem;
+  }
+
+  .book-subtitle {
+    font-size: 12px; font-weight: 400;
+    text-transform: uppercase; color: var(--grey100);
+    letter-spacing: 0.06em; margin-bottom: 1.75rem;
+  }
+
+  .book-hook {
+    font-family: 'Inter', sans-serif;
+    font-style: normal; font-weight: 400;
+    font-size: 20px; line-height: 1.6;
+    color: var(--purple); max-width: 400px;
+    margin-bottom: 2rem;
+  }
+
+  .book-ctas {
+    display: flex; flex-direction: column;
+    gap: 0; align-items: flex-start;
+  }
+
+  .book-ctas .btn-primary {
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2.25rem;
+    background: var(--purple); color: var(--white);
+    border: none; border-radius: 100px;
+    font-family: 'Antonio', sans-serif;
+    font-size: 18px; font-weight: 400;
+    text-transform: uppercase; cursor: pointer;
+    text-decoration: none; transition: background 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .btn-primary:hover { background: #5a53b8; }
+
+  .btn-black { background: #000; }
+  .btn-black:hover { background: #2a2a2a; }
+
+  .btn-secondary {
+    font-size: 15px; font-weight: 300;
+    color: var(--grey150); text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    cursor: pointer; background: none; border: none;
+    padding: 0; transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--grey200); }
+
+  .hero-links {
+    margin-top: 0.25rem;
+    display: flex; align-items: center; gap: 28px;
+  }
+  .hero-links a {
+    font-size: 13px; color: var(--grey150); text-decoration: underline; text-underline-offset: 3px;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .hero-links .stars { color: var(--purple); letter-spacing: 1px; font-size: 13px; }
+  .hero-links span.label { font-size: 13px; color: var(--grey150); }
+
+  /* ── PRESS FEATURE ── */
+  .press-illus-wrap {
+    max-width: 1100px; margin: 0 auto; padding: 0 3rem 5rem;
+  }
+
+  .press-illus-wrap img {
+    width: 100%; border-radius: var(--radius);
+    display: block; margin-bottom: 1rem;
+  }
+
+  .illus-caption {
+    font-size: 13px; font-weight: 300;
+    color: var(--grey100); letter-spacing: 0.05em;
+    font-style: italic;
+  }
+
+  /* ── THE ACHE (mirror section) ── */
+  .ache-section { background: var(--lilac); }
+
+  .ache-inner {
+    max-width: 760px; margin: 0 auto; padding: 5rem 3rem 3rem;
+    text-align: center;
+  }
+
+  .ache-line {
+    font-family: 'Inter', sans-serif;
+    font-style: normal; font-weight: 400;
+    font-size: clamp(17px, 2vw, 20px);
+    line-height: 1.6; color: var(--grey200);
+    margin-bottom: 1.25rem;
+  }
+
+  .ache-resolve {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 500;
+    font-size: clamp(20px, 2.6vw, 26px);
+    line-height: 1.6; color: var(--purple);
+    margin-top: 2rem;
+  }
+
+  /* ── WHAT MAKES IT DIFFERENT ── */
+  .different-section {
+    background: var(--white);
+  }
+
+  .different-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+
+  .different-left h2 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: clamp(36px, 4vw, 56px);
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+
+  .different-left .pull-quote {
+    font-size: 18px; font-weight: 400;
+    color: var(--grey200); line-height: 1.6;
+    font-style: italic;
+    border-left: 3px solid var(--purple);
+    padding-left: 1.25rem;
+  }
+
+  .different-right p {
+    font-size: 17px; font-weight: 300;
+    color: var(--grey150); line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .different-checklist {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .different-checklist li {
+    font-size: 17px; font-weight: 400;
+    color: var(--grey200); line-height: 1.5;
+    display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+
+  .different-checklist li::before {
+    content: '✓';
+    color: var(--purple); font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── VISUAL BREAK ── */
+  .visual-break-wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 3rem 5rem;
+  }
+
+  .visual-break-img {
+    width: 100%; border-radius: var(--radius);
+    display: block;
+  }
+
+  /* ── CHAPTER MAP ── */
+  .chaptermap-section {
+    background: var(--cream);
+  }
+
+  .chaptermap-outer-pad {
+    max-width: 1100px; margin: 0 auto;
+    padding: 5rem 3rem;
+  }
+
+  .chaptermap-h2 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: clamp(36px, 4vw, 56px);
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1; margin-bottom: 2rem;
+  }
+
+  .chaptermap-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+
+  .chaptermap-body {
+    font-size: 17px; font-weight: 300;
+    color: var(--grey150); line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .chaptermap-body:last-child { margin-bottom: 0; }
+
+  .chaptermap-img-wrap img {
+    width: 100%; border-radius: var(--radius);
+    display: block;
+  }
+
+  /* ── IN HER OWN WORDS ── */
+  .authorsnote-section { background: var(--lilac); }
+
+  .authorsnote-inner {
+    max-width: 1100px; margin: 0 auto; padding: 5rem 3rem;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3.5rem; align-items: start;
+  }
+
+  .authorsnote-left {
+    display: flex; flex-direction: column;
+    align-items: flex-start; gap: 1rem;
+  }
+
+  .authorsnote-portrait {
+    width: 140px; height: 140px; border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .authorsnote-portrait img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top; display: block;
+  }
+
+  .authorsnote-right h2 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: clamp(30px, 3.5vw, 44px);
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1.05; margin-bottom: 1.5rem;
+  }
+
+  .authorsnote-body p {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 400;
+    font-size: 18px; line-height: 1.75;
+    color: var(--grey200); margin-bottom: 1.25rem;
+  }
+
+  .authorsnote-signoff {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 400; font-size: 15px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--grey150); margin-bottom: 2rem;
+  }
+
+  .authorsnote-footnote {
+    font-size: 15px; font-weight: 300;
+    color: var(--grey150); line-height: 1.6;
+    border-top: 0.5px solid #d8cfe9; padding-top: 1.5rem;
+  }
+
+  .authorsnote-footnote a {
+    color: var(--grey200); text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── FLASHLIGHTS IN THE DARK ── */
+  .lightbeam-section { background: var(--white); }
+
+  .lightbeam-inner {
+    max-width: 680px; margin: 0 auto; padding: 6rem 3rem;
+    text-align: center;
+  }
+
+  .lightbeam-icon {
+    width: 44px; height: 44px;
+    margin-bottom: 2rem;
+  }
+
+  .lightbeam-line {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 400;
+    color: var(--grey200);
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .lightbeam-sub {
+    font-size: 16px; font-weight: 300;
+    color: var(--grey100);
+    line-height: 1.7;
+    max-width: 480px; margin: 0 auto;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section {
+    max-width: 1100px; margin: 0 auto; padding: 5rem 3rem;
+  }
+
+  .testimonials-h2 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: clamp(36px, 4vw, 56px);
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1; margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .testimonials-intro {
+    font-size: 17px; font-weight: 300;
+    color: var(--grey100); margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .testimonial-card {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex; flex-direction: column;
+  }
+
+  .testimonial-stars {
+    color: var(--purple);
+    font-size: 14px; letter-spacing: 2px;
+    margin-bottom: 0.85rem;
+  }
+
+  .testimonial-title {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: 18px;
+    color: var(--grey200); line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .testimonial-title a {
+    color: inherit; text-decoration: underline;
+    text-underline-offset: 3px; text-decoration-thickness: 1px;
+  }
+
+  .testimonial-placeholder {
+    font-family: 'Fraunces', serif;
+    font-size: 15px; font-weight: 400;
+    color: var(--grey150); font-style: italic;
+    line-height: 1.65;
+  }
+
+  .testimonial-attr {
+    font-size: 13px; font-weight: 400;
+    color: var(--grey100); margin-top: 1.5rem;
+  }
+
+  /* ── BRING INSPIRED HOME (offer) ── */
+  .offer-section { max-width: 1100px; margin: 0 auto; padding: 5rem 3rem; }
+
+  .offer-head { text-align: center; max-width: 560px; margin: 0 auto 3rem; }
+
+  .offer-head h2 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: clamp(32px, 4vw, 48px);
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1.05; margin-bottom: 1rem;
+  }
+
+  .offer-head p {
+    font-size: 17px; font-weight: 300;
+    color: var(--grey150); line-height: 1.7;
+  }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; align-items: stretch;
+  }
+
+  .offer-card {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    display: flex; flex-direction: column;
+  }
+
+  .offer-card.primary {
+    background: var(--white);
+    border: 1px solid #e8e5de;
+    border-top: 3px solid var(--purple);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .offer-card-label {
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--grey100); margin-bottom: 0.85rem;
+  }
+
+  .offer-card h3 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: 22px;
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1.1; margin-bottom: 0.75rem;
+  }
+
+  .offer-card p.offer-body {
+    font-size: 15px; font-weight: 300;
+    color: var(--grey150); line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .offer-price {
+    font-size: 14px; font-style: italic;
+    color: var(--grey100); margin-bottom: 1.5rem;
+  }
+
+  .offer-card .btn-primary,
+  .offer-card .gifting-cta {
+    margin-top: auto; align-self: flex-start;
+    font-size: 15px; padding: 0.7rem 1.5rem;
+  }
+
+  .gifting-cta {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: var(--grey200); color: var(--white);
+    border: none; border-radius: 100px;
+    font-family: 'Antonio', sans-serif;
+    font-size: 15px; font-weight: 400;
+    text-transform: uppercase; cursor: pointer;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .gifting-cta:hover { background: #444441; }
+
+  /* ── WORKSHOPS (closing proof) ── */
+  .workshops-section {
+    background: var(--cream);
+  }
+
+  .workshops-inner {
+    max-width: 860px; margin: 0 auto; padding: 5rem 3rem;
+    text-align: center;
+  }
+
+  .workshops-label {
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--grey100); margin-bottom: 1rem;
+  }
+
+  .workshops-h2 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700; font-size: clamp(32px, 4vw, 48px);
+    text-transform: uppercase; color: var(--grey200);
+    line-height: 1.05; margin-bottom: 1.25rem;
+  }
+
+  .workshops-intro {
+    font-size: 17px; font-weight: 300;
+    color: var(--grey150); line-height: 1.75;
+    max-width: 600px; margin: 0 auto 2.5rem;
+  }
+
+  .workshops-photos {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; margin-bottom: 1.25rem;
+  }
+
+  .workshops-photos img {
+    width: 100%; aspect-ratio: 3/4;
+    object-fit: cover; border-radius: var(--radius);
+    display: block;
+  }
+
+  .workshops-clipping {
+    width: 100%;
+    border-radius: var(--radius);
+    display: block;
+  }
+
+  /* ── FINAL CTA ── */
+  .finalcta-section { background: var(--navy); text-align: center; }
+
+  .finalcta-inner { max-width: 620px; margin: 0 auto; padding: 5rem 3rem; }
+
+  .finalcta-line {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 500;
+    color: var(--white);
+    font-size: clamp(26px, 3.5vw, 38px);
+    line-height: 1.35; margin-bottom: 0.75rem;
+  }
+
+  .finalcta-sub {
+    font-size: 16px; font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 2rem;
+  }
+
+  /* ── PUBLISHING (slim footnote bar) ── */
+  .publishing-bar {
+    max-width: 1100px; margin: 0 auto;
+    padding: 1.75rem 3rem;
+    display: flex; align-items: center;
+    justify-content: center; gap: 0.5rem;
+    flex-wrap: wrap;
+    border-top: 0.5px solid #d8d5ce;
+    text-align: center;
+  }
+
+  .publishing-bar p {
+    font-size: 14px; font-weight: 300;
+    color: var(--grey100);
+  }
+
+  .publishing-bar a {
+    color: var(--grey150); text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 0.5px solid #d8d5ce;
+    padding: 2.5rem 3rem;
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 2rem;
+  }
+
+  .footer-name {
+    font-family: 'Antonio', sans-serif; font-weight: 700;
+    font-size: 22px; text-transform: uppercase;
+    color: var(--grey200); letter-spacing: 0.02em;
+  }
+
+  .footer-right { display: flex; align-items: center; gap: 1rem; }
+
+  .social-icon { width: 20px; height: 20px; fill: var(--grey150); }
+
+  .footer-copy { font-size: 13px; font-weight: 300; color: var(--grey100); white-space: nowrap; }
+
+  /* ── MOBILE ── */
+  .header-mobile {
+    display: none; align-items: center; justify-content: space-between;
+    padding: 1rem 1.5rem;
+    position: sticky; top: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px); z-index: 100;
+    border-bottom: 0.5px solid #e8e5de;
+  }
+
+  .header-mobile-name {
+    font-family: 'Antonio', sans-serif; font-weight: 700;
+    font-size: 20px; text-transform: uppercase; color: var(--grey200);
+  }
+
+  .header-mobile .nav-cta { font-size: 13px; padding: 0.55rem 1.25rem; }
+  .header-mobile .header-link { font-size: 13px; }
+  .header-mobile .header-right { gap: 1rem; }
+
+  @media (max-width: 768px) {
+    header { display: none; }
+    .header-mobile { display: flex; }
+
+    .book-hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; }
+    .book-title { font-size: clamp(56px, 16vw, 80px); }
+    .book-hook { font-size: 19px; }
+    .hook-break { display: none; }
+
+    .press-illus-wrap { padding: 0 1.5rem 4rem; }
+
+    .ache-inner { padding: 3.5rem 1.5rem; }
+
+    .different-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+
+    .testimonials-section { padding: 4rem 1.5rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    .chaptermap-outer-pad { padding: 4rem 1.5rem; }
+    .chaptermap-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    .authorsnote-inner { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
+    .authorsnote-left { flex-direction: row; align-items: center; }
+    .authorsnote-portrait { width: 84px; height: 84px; }
+
+    .lightbeam-inner { padding: 4rem 1.5rem; }
+
+    .visual-break-wrap { padding: 0 1.5rem 4rem; }
+
+    .offer-section { padding: 4rem 1.5rem; }
+    .offer-grid { grid-template-columns: 1fr; }
+
+    .workshops-inner { padding: 4rem 1.5rem; }
+    .workshops-photos { grid-template-columns: 1fr; }
+
+    .finalcta-inner { padding: 4rem 1.5rem; }
+
+    .publishing-bar { padding: 1.5rem; }
+
+    footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER DESKTOP ── -->
+<header>
+  <div class="header-inner">
+    <a class="header-name" href="index.html">Nishita Mohta</a>
+    <div class="header-right">
+      <a href="about.html" class="header-link">About</a>
+      <a href="index.html#office" class="nav-cta">Work with me</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── HEADER MOBILE ── -->
+<div class="header-mobile">
+  <span class="header-mobile-name">Nishita Mohta</span>
+  <div class="header-right">
+    <a href="about.html" class="header-link">About</a>
+    <a href="index.html#office" class="nav-cta">Work with me</a>
+  </div>
+</div>
+
+<!-- ── BOOK HERO ── -->
+<div class="book-hero">
+  <div class="book-cover-wrap">
+    <img src="inspired5.jpeg" alt="Inspired: The A-Z of Creative Unblocking by Nishita Mohta">
+  </div>
+  <div class="book-hero-text">
+    <p class="book-label">Now available</p>
+    <h1 class="book-title">INSPIRED</h1>
+    <p class="book-subtitle">The A–Z of Creative Unblocking, by Nishita Mohta</p>
+    <p class="book-hook">For days when the blank page feels <br class="hook-break">louder than any of your ideas.</p>
+    <div class="book-ctas">
+      <a href="#get-your-copy" class="btn-primary btn-black">Buy author-signed copy</a>
+    </div>
+    <div class="hero-links">
+      <a href="https://open.substack.com/pub/nishitamohta/p/we-can-do-hard-things-slowly" target="_blank" rel="noopener"><span class="label">Read a sample →</span></a>
+      <span class="stars">★★★★★</span> <span class="label">Rated by readers on Amazon</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── THE ACHE (mirror section, now includes press feature) ── -->
+<section class="ache-section">
+  <div class="ache-inner">
+    <p class="eyebrow">Sound familiar?</p>
+    <p class="ache-line">You open a blank page, and the cursor just blinks back at you.</p>
+    <p class="ache-line">You scroll past someone else's finished work and<br>quietly wonder if you still have it in you.</p>
+    <p class="ache-line">You call it a slump. A phase. A block.<br>Privately, you wonder if it's permanent.</p>
+    <p class="ache-resolve">‘Inspired’ was written for exactly this moment.<br>Not to fix you, but to sit with you until the fog lifts.</p>
+  </div>
+  <div class="press-illus-wrap">
+    <img src="news-inspired.jpg" alt="A read to inspire: NT Buzz feature on Inspired by Nishita Mohta">
+    <p class="illus-caption">Featured: Navhind Times, on 6th July 2024</p>
+  </div>
+</section>
+
+<!-- ── WHAT MAKES IT DIFFERENT ── -->
+<div class="different-section">
+  <div class="different-inner">
+    <div class="different-left">
+      <h2>What Makes This Book Different</h2>
+      <p class="pull-quote">Untangles the messy inner world of creativity, and supports you in creating again.</p>
+    </div>
+    <div class="different-right">
+      <p>Written for creatives navigating doubt, unrest and the in-between moments, this book offers soothing clarity and practical ways to move forward.</p>
+      <p>It doesn't shout solutions. It understands you and helps you take the next small step.</p>
+      <ul class="different-checklist">
+        <li>Short chapters</li>
+        <li>Actionable insights</li>
+        <li>A warm, steady nudge forward</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ── VISUAL BREAK ── -->
+<div class="visual-break-wrap">
+  <img src="inspired1.gif" alt="Nishita Mohta presenting Inspired at UX India 2024" class="visual-break-img">
+  <p class="illus-caption" style="margin-top:0.75rem;">Introducing ‘Inspired’ to 200+ workshop participants at UX India, 2024.</p>
+</div>
+
+<!-- ── CHAPTER MAP ── -->
+<section class="chaptermap-section">
+  <div class="chaptermap-outer-pad">
+    <div class="chaptermap-inner">
+      <div class="chaptermap-text">
+        <h2 class="chaptermap-h2">Readers love the<br>chapter map</h2>
+        <p class="chaptermap-body"><strong>You don't have to read it from cover to cover.</strong> Instead, every chapter is entirely self-contained: complete in itself and designed to be useful the moment you need it.</p>
+        <p class="chaptermap-body">Any time you feel stuck, the chapter map points you toward the chapters that are most relevant to this particular moment. You can start anywhere, return to any chapter, and skip everything that doesn't apply.</p>
+      </div>
+      <div class="chaptermap-img-wrap">
+        <img src="chapter-map.png" alt="Chapter map from Inspired showing a decision tree to navigate the book">
+        <p class="illus-caption" style="margin-top:0.75rem;">A sneak peek at the Chapter Map</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IN HER OWN WORDS ── -->
+<section class="authorsnote-section">
+  <div class="authorsnote-inner">
+    <div class="authorsnote-left">
+      <div class="authorsnote-portrait">
+        <img src="nishita.jpg" alt="Nishita Mohta">
+      </div>
+      <p class="eyebrow">In her own words</p>
+    </div>
+    <div class="authorsnote-right">
+      <h2>Why I Wrote This Book</h2>
+      <div class="authorsnote-body">
+        <p>I didn't set out to become a writer. I trained as an architect, worked as a designer for 4 years, and then spent years in rooms with creative founders, helping them build businesses that actually fit their lives. At every stage, I saw the same quiet struggle show up: talented people feeling stuck and being far too hard on themselves about it.</p>
+        <p>‘Inspired’ is what I wish someone had handed me on my hardest days. It isn't a manual. It's a friend that'll walk with you to overcome creative blocks, one chapter at a time.</p>
+      </div>
+      <p class="authorsnote-signoff">— Nishita</p>
+      <p class="authorsnote-footnote">Publishing it exactly the way I wanted meant doing it myself.
+        <a href="https://open.substack.com/pub/nishitamohta/p/why-i-chose-to-self-publish-inspired?r=2n3804&utm_campaign=post&utm_medium=web" target="_blank" rel="noopener">Read: Why I Chose to Self-Publish →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FLASHLIGHTS IN THE DARK (light, airy moment) ── -->
+<section class="lightbeam-section">
+  <div class="lightbeam-inner">
+    <svg class="lightbeam-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="30" cy="30" r="4" fill="var(--purple)"/>
+      <path d="M30 30L12 14M30 30L48 14M30 30L8 30M30 30L52 30M30 30L12 46M30 30L48 46" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    </svg>
+    <p class="lightbeam-line">The voice of the Inner Critic feels deafening in our own minds. But judgement-free conversations with fellow creatives are like flashlights in the dark. They remind us: we're not alone.</p>
+    <p class="lightbeam-sub">That reminder has an almost-medicinal quality to it, and ‘Inspired’ is a collection of exactly those conversations.<br>It helps you find your way back to creating.</p>
+  </div>
+</section>
+
+<!-- ── VISUAL BREAK 2 ── -->
+<div class="visual-break-wrap">
+  <img src="inspired1.jpg" alt="‘Inspired’ by Nishita Mohta, styled flatlay with a notebook, pencil, and dried flowers" class="visual-break-img">
+</div>
+
+<!-- ── READER TESTIMONIALS ── -->
+<section class="testimonials-section" id="testimonials">
+  <h2 class="testimonials-h2">What Readers Say</h2>
+  <p class="testimonials-intro">Real reviews, from Amazon.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
+      <p class="testimonial-title"><a href="https://www.amazon.in/portal/customer-reviews/srp/-/R11E9YK9AR73RX/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8" target="_blank" rel="noopener">A must read for freelancers, designers and creatives!</a></p>
+      <p class="testimonial-placeholder">"I couldn't imagine how fast my pace was while reading this. The vocabulary and everything are so on-point that it never seemed neither hard nor naive. Just completely balanced. I'm gonna recommend this after 'Show your work' to many of my Designer and Freelancer friends."</p>
+      <p class="testimonial-attr">— Lakshay Nagpal, on Amazon</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
+      <p class="testimonial-title"><a href="https://www.amazon.in/portal/customer-reviews/srp/-/R20U0QA8152RWP/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8" target="_blank" rel="noopener">Like a friendly comforting hug :)</a></p>
+      <p class="testimonial-placeholder">"Some of the chapters read like Nishita is peeking into our (creative but messy) minds! The book will hold you in its warm embrace :) behad sukoon mila hai mujhe mehaz kuch pannon mein se hi"</p>
+      <p class="testimonial-attr">— S, on Amazon</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
+      <p class="testimonial-title"><a href="https://www.amazon.in/portal/customer-reviews/srp/-/R34VRF74HXT5NO/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8" target="_blank" rel="noopener">It's worth keeping within arm's reach.</a></p>
+      <p class="testimonial-placeholder">"It's the kind of book you don't just read, you revisit. Again and again. Some chapters have become old friends I keep coming back to, each time finding something new. It's only a matter of time before it becomes a staple. A go-to for not just beginners but design leaders as well. It's destined to sit alongside classics."</p>
+      <p class="testimonial-attr">— Aghosh Babu, on Amazon</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRING INSPIRED HOME (offer) ── -->
+<section class="offer-section" id="get-your-copy">
+  <div class="offer-head">
+    <p class="eyebrow">Get your copy</p>
+    <h2>Bring Inspired Home</h2>
+    <p>However you'd like it to reach you, or someone who needs it.</p>
+  </div>
+  <div class="offer-grid">
+    <div class="offer-card primary">
+      <p class="offer-card-label">For Yourself</p>
+      <h3>Your Own Copy</h3>
+      <p class="offer-body">A signed paperback, delivered to your door. To keep on your desk for the days you need it most.</p>
+      <p class="offer-price">Free shipping across India.</p>
+      <a href="https://rzp.io/l/zZCRef0vHZ" class="btn-primary" target="_blank" rel="noopener">Buy Book →</a>
+    </div>
+    <div class="offer-card">
+      <p class="offer-card-label">For Someone Else</p>
+      <h3>Gift a Copy</h3>
+      <p class="offer-body">Custom notes &amp; gift wrapping available, for someone who needs a creative reset.</p>
+      <p class="offer-price">Free shipping across India.</p>
+      <a href="https://rzp.io/rzp/t278HNsa" class="gifting-cta" target="_blank" rel="noopener">Buy as a Gift →</a>
+    </div>
+    <div class="offer-card">
+      <p class="offer-card-label">For Studios &amp; Teams</p>
+      <h3>Bulk Orders</h3>
+      <p class="offer-body">Special pricing for studios, agencies and organisations equipping their whole team.</p>
+      <a href="https://topmate.io/nishitamohta/2204977/pay" class="gifting-cta" target="_blank" rel="noopener">Explore Bulk Offer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WORKSHOPS & TALKS (closing proof) ── -->
+<div class="workshops-section">
+  <div class="workshops-inner">
+    <p class="workshops-label">Beyond the Book</p>
+    <h2 class="workshops-h2">Workshops &amp; Talks Inspired by ‘Inspired’</h2>
+    <p class="workshops-intro">Since its release, ‘Inspired’ has travelled well beyond its pages, into workshops, talks, and conversations across cities and communities. Its ideas have gone on to inspire creatives and readers, and even people who've never opened the book itself, proof that its core lessons on creative unblocking resonate far beyond the page.</p>
+    <div class="workshops-photos">
+      <img src="inspired2.jpg" alt="Nishita Mohta speaking at the Launch Lab workshop, DesignUp 2024">
+      <img src="inspired3.jpg" alt="Nishita Mohta on stage at Design Days">
+      <img src="inspired4.jpg" alt="Nishita Mohta at an author meet and greet, signing copies of Inspired">
+    </div>
+    <img src="news-pp.jpg" alt="Navhind Times feature 'From idea to action' on The Passion Project Circle by Nishita Mohta" class="workshops-clipping">
+  </div>
+</div>
+
+<!-- ── FINAL CTA ── -->
+<section class="finalcta-section">
+  <div class="finalcta-inner">
+    <p class="finalcta-line">You don't have to figure<br>this out alone.</p>
+    <p class="finalcta-sub">Turn to page one.</p>
+    <a href="#get-your-copy" class="btn-primary">Buy Book →</a>
+  </div>
+</section>
+
+<!-- ── PUBLISHING ENQUIRIES (slim bar) ── -->
+<div class="publishing-bar">
+  <p>Interested in publishing ‘Inspired’ in a new language or territory? <a href="https://topmate.io/nishitamohta/2204977/pay" target="_blank" rel="noopener">Get in touch</a></p>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="footer-name">Nishita Mohta</span>
+  <div class="footer-right">
+    <a href="https://www.instagram.com/nishitamohta/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/nishitamohta/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg class="social-icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <span class="footer-copy">© 2026 Nishita Mohta</span>
+  </div>
+</footer>
+
+</body>
+</html>
